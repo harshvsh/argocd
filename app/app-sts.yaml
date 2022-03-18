@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
+  name: app-sts
+spec:
+#  podManagementPolicy: Parallel
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+      statefulset: app-sts
+  serviceName: my-svc
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+        statefulset: app-sts
+        networking/policy-group: application-endpoint
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: Europe/Rome
+            - name: AMBIENTE
+              value: CODING
+            - name: VAR
+              value: 'a value'
+          image: 'registry.redhat.io/rhel8/httpd-24:1-176'
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 60
+            successThreshold: 1
+            timeoutSeconds: 15
+          name: webserver
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
