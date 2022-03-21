@@ -13,4 +13,4 @@ subjects:
   namespace: test1
 - kind: ServiceAccount
   name: haproxy 
-  namespace: test1
+  namespace: stom-apps-build
