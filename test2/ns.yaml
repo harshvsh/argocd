@@ -1,0 +1,87 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/description: ""
+    openshift.io/display-name: ""
+    openshift.io/requester: kube:admin
+    openshift.io/sa.scc.mcs: s0:c27,c4
+    openshift.io/sa.scc.supplemental-groups: 1000710000/10000
+    openshift.io/sa.scc.uid-range: 1000710000/10000
+  creationTimestamp: "2022-03-21T11:30:31Z"
+  labels:
+    kubernetes.io/metadata.name: test3
+    olm.operatorgroup.uid/6a436066-593c-4f72-ba19-c0693db8dfac: ""
+    openshift.io/cluster-monitoring: "true"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/description: {}
+          f:openshift.io/display-name: {}
+          f:openshift.io/requester: {}
+        f:labels:
+          .: {}
+          f:kubernetes.io/metadata.name: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2022-03-21T11:30:31Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:openshift.io/sa.scc.mcs: {}
+          f:openshift.io/sa.scc.supplemental-groups: {}
+          f:openshift.io/sa.scc.uid-range: {}
+    manager: cluster-policy-controller
+    operation: Update
+    time: "2022-03-21T11:30:31Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:finalizers: {}
+    manager: openshift-controller-manager
+    operation: Update
+    subresource: finalize
+    time: "2022-03-21T11:30:31Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:openshift.io/cluster-monitoring: {}
+    manager: manager
+    operation: Update
+    time: "2022-03-21T11:32:35Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:olm.operatorgroup.uid/6a436066-593c-4f72-ba19-c0693db8dfac: {}
+    manager: olm
+    operation: Update
+    time: "2022-03-21T11:32:51Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:argocd.argoproj.io/managed-by: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2022-03-21T11:40:25Z"
+  name: test3
+  resourceVersion: "81476"
+  uid: e2646cc0-3c08-456a-977a-6aef40bd321d
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
+
