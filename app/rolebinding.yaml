@@ -10,7 +10,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default 
-  namespace: test1
+  namespace: stom-apps-build
 - kind: ServiceAccount
   name: haproxy 
-  namespace: stom-apps-build
+  namespace: test1
