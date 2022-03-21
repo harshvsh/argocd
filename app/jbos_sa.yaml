@@ -1,0 +1,14 @@
+apiVersion: v1
+imagePullSecrets:
+- name: jbosseap-dockercfg-6g5qz
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2022-03-21T12:06:57Z"
+  name: jbosseap
+  namespace: asse-cc3r5e1
+  resourceVersion: "92611"
+  uid: 0ca6ba9f-ea61-46e3-ac3b-271d5424a9e6
+secrets:
+- name: jbosseap-token-6gsjr
+- name: jbosseap-dockercfg-6g5qz
+
